@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618060400629",
+    "project_id": "shoppinglistapp-fe3b0",
+    "storage_bucket": "shoppinglistapp-fe3b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618060400629:android:ede45dc95f93292aeec2bc",
+        "android_client_info": {
+          "package_name": "com.example.Rzesny.shoppinglistapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618060400629-qj5l7miuj7vjfiras7cqs7l6e5o5pjbn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVlkC8oKVra1i2bL9fPQS2zpwochZUgM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618060400629-qj5l7miuj7vjfiras7cqs7l6e5o5pjbn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ShoppingListApp</string>
+    <string name="title_activity_products_list">ProductsListActivity</string>
+    <string name="MainLabel">MY SHOPPING LIST"</string>
+    <string name="MyShoppingListButton">MY LIST</string>
+    <string name="SettingsLabel">SETTINGS</string>
+    <string name="ExitButton">EXIT</string>
+    <string name="OptionsButton">OPTIONS</string>
+    <string name="ThemeLabel">Theme:</string>
+    <string name="DarkRadio">Dark</string>
+    <string name="WhiteRadio">White</string>
+    <string name="ApplyChangesButton">APPLY CHANGES</string>
+    <string name="AddProductButton">ADD PRODUCT</string>
+    <string name="ClearListButton">CLEAR LIST</string>
+    <string name="ListLabel">List</string>
+    <string name="ProductNameLabel">Product name</string>
+    <string name="PriceLabel">Price [zł]</string>
+    <string name="AmountLabel">Amount</string>
+    <string name="isBoughtLabel">Is product already bought?</string>
+    <string name="deleteProductMenu">DELETE PRODUCT</string>
+    <string name="updateProductMenu">UPDATE PRODUCT</string>
+    <string name="onProductDeleteMessage">Product deleted successfully</string>
+    <string name="onProductUpdateMessage">Product updated successfully</string>
+    <string name="onProductAddMessage">Product added successfully</string>
+    <string name="CancelButton">Cancel</string>
+    <string name="ConfirmButton">Confirm</string>
+    <string name="MissingProductName">You did not enter a product name!</string>
+</resources>

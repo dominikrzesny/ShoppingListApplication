@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ShoppingListApp</string>
+    <string name="title_activity_products_list">ProductsListActivity</string>
+    <string name="MainLabel">APLIKACJA "LISTA ZAKUPÓW"</string>
+    <string name="MyShoppingListButton">Moja Lista</string>
+    <string name="OptionsButton">OPCJE</string>
+    <string name="ExitButton">WYJDŹ</string>
+    <string name="SettingsLabel">USTAWIENIA</string>
+    <string name="ThemeLabel">Motyw:</string>
+    <string name="DarkRadio">Ciemny</string>
+    <string name="WhiteRadio">Jasny</string>
+    <string name="ApplyChangesButton">ZATWIERDŹ ZMIANY</string>
+    <string name="AddProductButton">DODAJ PRODUKT</string>
+    <string name="ClearListButton">WYCZYŚĆ LISTĘ</string>
+    <string name="ListLabel">Lista</string>
+    <string name="ProductNameLabel">Nazwa produktu</string>
+    <string name="PriceLabel">Cena [zł]</string>
+    <string name="AmountLabel">Ilość</string>
+    <string name="isBoughtLabel">Czy produkt już kupiony?</string>
+    <string name="deleteProductMenu">USUŃ PRODUKT</string>
+    <string name="updateProductMenu">EDYTUJ PRODUKT</string>
+    <string name="onProductDeleteMessage">Usunięto produkt</string>
+    <string name="onProductUpdateMessage">Zaaktualizowano produkt</string>
+    <string name="onProductAddMessage">Dodano produkt</string>
+    <string name="CancelButton">Anuluj</string>
+    <string name="ConfirmButton">Zatwierdź</string>
+    <string name="MissingProductName">Nie wprowadziłeś nazwy produktu!</string>
+</resources>
