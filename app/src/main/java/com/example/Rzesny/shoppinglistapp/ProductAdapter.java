@@ -39,7 +39,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
      holder.productNameTextView.setText(products.get(position).productName);
      holder.priceTextView.setText(String.valueOf(products.get(position).price) + " zł");
      holder.amountTextView.setText(products.get(position).amount);
-     holder.isBoughtCheckBox.setChecked(products.get(position).isBought);
+     holder.isBoughtCheckBox.setChecked(products.get(position).bought);
     }
 
     public Product getProduct(int position){

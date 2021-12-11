@@ -3,9 +3,7 @@ package com.example.Rzesny.shoppinglistapp;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +14,9 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.Rzesny.shoppinglistapp.Models.Product;
 import com.example.Rzesny.shoppinglistapp.Utils.DatabaseUtils;
+import com.example.Rzesny.shoppinglistapp.Utils.UserUtils;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AddProductDialog extends AppCompatDialogFragment {
 
@@ -26,9 +27,8 @@ public class AddProductDialog extends AppCompatDialogFragment {
     private EditText amountEditText;
     private EditText priceEditText;
     private CheckBox IsBoughtCheckBox;
-    private AddProductDialogListener listener;
     private Activity activity;
-    public static String PERMISSION = "com.example.Rzesny.shoppinglistapp.NEW_PRODUCT_PERMISSION";
+    private DatabaseReference databaseReference;
 
     public AddProductDialog(Product product, boolean isUpdate, Activity activity){
         this.product = product;
@@ -45,7 +45,7 @@ public class AddProductDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_add_product,null);
-        productNameEditText = view.findViewById(R.id.productNameEditText);
+        productNameEditText = view.findViewById(R.id.ProductNameEditText);
         amountEditText = view.findViewById(R.id.amountEditText);
         priceEditText = view.findViewById(R.id.priceEditText);
         IsBoughtCheckBox = view.findViewById(R.id.isBoughtCheckBoxD);
@@ -54,8 +54,9 @@ public class AddProductDialog extends AppCompatDialogFragment {
             productNameEditText.setText(product.productName);
             amountEditText.setText(product.amount);
             priceEditText.setText(String.valueOf(product.price));
-            IsBoughtCheckBox.setChecked(product.isBought);
+            IsBoughtCheckBox.setChecked(product.bought);
             Title = getResources().getString(R.string.updateProductMenu);
+            productNameEditText.setEnabled(false);
         }
 
         builder.setView(view)
@@ -78,41 +79,12 @@ public class AddProductDialog extends AppCompatDialogFragment {
                         p.price = Float.parseFloat(priceEditText.getText().toString());
                     }
                     p.amount = amountEditText.getText().toString();
-                    p.isBought = IsBoughtCheckBox.isChecked();
-
-                    if(isUpdate){
-                        p.Id = product.Id;
-                        DatabaseUtils.productQueries.updateRecord(product.Id, p.productName,p.amount,p.price,p.isBought);
-                        Toast.makeText(activity.getBaseContext(), getResources().getString(R.string.onProductUpdateMessage), Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        p.Id =(int)DatabaseUtils.productQueries.insert(p);
-                        Toast.makeText(activity.getBaseContext(), getResources().getString(R.string.onProductAddMessage), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent();
-                        intent.setAction("PRODUCT_ADDED");
-                        intent.putExtra("Id", p.Id);
-                        intent.putExtra("ProductName", p.productName);
-                        activity.sendBroadcast(intent,PERMISSION);
-                    }
-
-                    listener.refreshList(true);
+                    p.bought = IsBoughtCheckBox.isChecked();
+                    databaseReference= FirebaseDatabase.getInstance("https://shoppinglistapp-fe3b0-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users/"+ UserUtils.loggedUser.getDisplayName()+"/Products/" + p.productName);
+                    DatabaseUtils.pushProduct(databaseReference,p,activity.getBaseContext());
                 }
             }
         });
         return builder.create();
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        try {
-            listener = (AddProductDialogListener) context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + "must implement AddProductDialogListener");
-        }
-    }
-
-    public interface AddProductDialogListener{
-        void refreshList(boolean addProductResult);
     }
 }
