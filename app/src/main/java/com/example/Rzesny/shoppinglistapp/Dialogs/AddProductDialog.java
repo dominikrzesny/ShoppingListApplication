@@ -1,4 +1,4 @@
-package com.example.Rzesny.shoppinglistapp;
+package com.example.Rzesny.shoppinglistapp.Dialogs;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.Rzesny.shoppinglistapp.Models.Product;
+import com.example.Rzesny.shoppinglistapp.R;
 import com.example.Rzesny.shoppinglistapp.Utils.DatabaseUtils;
 import com.example.Rzesny.shoppinglistapp.Utils.UserUtils;
 import com.google.firebase.database.DatabaseReference;
@@ -81,7 +82,7 @@ public class AddProductDialog extends AppCompatDialogFragment {
                     p.amount = amountEditText.getText().toString();
                     p.bought = IsBoughtCheckBox.isChecked();
                     databaseReference= FirebaseDatabase.getInstance("https://shoppinglistapp-fe3b0-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users/"+ UserUtils.loggedUser.getDisplayName()+"/Products/" + p.productName);
-                    DatabaseUtils.pushProduct(databaseReference,p,activity.getBaseContext());
+                    DatabaseUtils.pushProduct(databaseReference,p,activity.getBaseContext(),isUpdate);
                 }
             }
         });

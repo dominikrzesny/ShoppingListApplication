@@ -10,9 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.Rzesny.shoppinglistapp.AddProductDialog;
 import com.example.Rzesny.shoppinglistapp.R;
-import com.example.Rzesny.shoppinglistapp.RegisterUserDialog;
+import com.example.Rzesny.shoppinglistapp.Dialogs.RegisterUserDialog;
 import com.example.Rzesny.shoppinglistapp.Utils.SharedPreferencesUtils;
 import com.example.Rzesny.shoppinglistapp.Utils.ThemeUtils;
 import com.google.android.gms.tasks.OnCompleteListener;

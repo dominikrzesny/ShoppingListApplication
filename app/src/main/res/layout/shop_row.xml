@@ -4,21 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:id="@+id/productRecordLayout">
+    android:id="@+id/shopRecordLayout">
 
     <Space
-        android:layout_width="20dp"
-        android:layout_height="match_parent"
-    />
-
-    <CheckBox
-        android:id="@+id/isBoughtCheckBox"
-        android:layout_width="40dp"
-        android:layout_height="match_parent"
-        android:clickable="false" />
-
-    <Space
-        android:layout_width="20dp"
+        android:layout_width="30dp"
         android:layout_height="match_parent"
         />
 
@@ -29,23 +18,28 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/productNameTextView"
+            android:id="@+id/shopNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/priceTextView"
+            android:id="@+id/descriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/amountTextView"
+            android:id="@+id/radiusTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/coordinatesTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="13sp" />
 
     </LinearLayout>
-
 </LinearLayout>

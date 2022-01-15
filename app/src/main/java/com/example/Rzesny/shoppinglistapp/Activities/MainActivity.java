@@ -1,29 +1,30 @@
 package com.example.Rzesny.shoppinglistapp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import com.example.Rzesny.shoppinglistapp.R;
-import com.example.Rzesny.shoppinglistapp.Utils.DatabaseUtils;
+import com.example.Rzesny.shoppinglistapp.Utils.GeofenceUtils;
 import com.example.Rzesny.shoppinglistapp.Utils.SharedPreferencesUtils;
 import com.example.Rzesny.shoppinglistapp.Utils.ThemeUtils;
 import com.example.Rzesny.shoppinglistapp.Utils.UserUtils;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        createNotificationChannel();
         SharedPreferencesUtils.loadTheme(this);
         ThemeUtils.onActivityCreateSetTheme(this);
         SharedPreferencesUtils.loadAndSetLocale(this);
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         }
         TextView loginTextView = findViewById(R.id.loginTextView);
         loginTextView.setText(getResources().getString(R.string.LoggedAs)+ " " +UserUtils.loggedUser.getDisplayName());
+
+        GeofenceUtils.requestLocationsPermissions(this);
+        GeofenceUtils.createGeofencingClient(this);
+
     }
 
     public void onSettingButtonClickMethod(View view){
@@ -53,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(myListIntent);
     }
 
+    public void onShopsListButtonClickMethod(View view){
+        final Intent shopsListIntent = new Intent(MainActivity.this, ShopListActivity.class);
+        startActivity(shopsListIntent);
+    }
+
     public void onExitButtonClickMethod(View view){
         finish();
         System.exit(0);
@@ -60,6 +70,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void onLogoutButtonClickMethod(View view){
         showLogoutAlertDialog();
+    }
+
+    public void onMapButtonClickMethod(View view) {
+        if (GeofenceUtils.checkUserLocationPermissions(this)) {
+            final Intent myListIntent = new Intent(MainActivity.this, MapActivity.class);
+            startActivity(myListIntent);
+        }
+        else{
+            Toast.makeText(getBaseContext(), getResources().getString(R.string.NoPermissionsError), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -76,6 +96,21 @@ public class MainActivity extends AppCompatActivity {
             recreate();
         }
     }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.ChannelName);
+            String description = getString(R.string.ChannelDescription);
+            String channelID = getString(R.string.ChannelID);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(channelID, name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
 
     public void showLogoutAlertDialog(){
         new AlertDialog.Builder(this)

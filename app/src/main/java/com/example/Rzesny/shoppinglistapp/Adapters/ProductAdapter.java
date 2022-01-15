@@ -1,4 +1,4 @@
-package com.example.Rzesny.shoppinglistapp;
+package com.example.Rzesny.shoppinglistapp.Adapters;
 
 import android.content.Context;
 import android.view.ContextMenu;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Rzesny.shoppinglistapp.Models.Product;
+import com.example.Rzesny.shoppinglistapp.R;
 
 import java.util.ArrayList;
 

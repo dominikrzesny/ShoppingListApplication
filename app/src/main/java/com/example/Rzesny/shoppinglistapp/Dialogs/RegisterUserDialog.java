@@ -1,4 +1,4 @@
-package com.example.Rzesny.shoppinglistapp;
+package com.example.Rzesny.shoppinglistapp.Dialogs;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import com.example.Rzesny.shoppinglistapp.Activities.LoginActivity;
 import com.example.Rzesny.shoppinglistapp.Activities.MainActivity;
 import com.example.Rzesny.shoppinglistapp.Models.Product;
+import com.example.Rzesny.shoppinglistapp.R;
 import com.example.Rzesny.shoppinglistapp.Utils.DatabaseUtils;
 import com.example.Rzesny.shoppinglistapp.Utils.UserUtils;
 import com.google.android.gms.tasks.OnCompleteListener;

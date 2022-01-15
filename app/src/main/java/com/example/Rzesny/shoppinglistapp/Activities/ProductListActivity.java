@@ -4,22 +4,19 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Rzesny.shoppinglistapp.AddProductDialog;
-import com.example.Rzesny.shoppinglistapp.ProductAdapter;
+import com.example.Rzesny.shoppinglistapp.Dialogs.AddProductDialog;
+import com.example.Rzesny.shoppinglistapp.Adapters.ProductAdapter;
 import com.example.Rzesny.shoppinglistapp.R;
 import com.example.Rzesny.shoppinglistapp.Models.Product;
 import com.example.Rzesny.shoppinglistapp.Utils.DatabaseUtils;
 import com.example.Rzesny.shoppinglistapp.Utils.ThemeUtils;
 import com.example.Rzesny.shoppinglistapp.Utils.UserUtils;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +33,6 @@ public class ProductListActivity extends AppCompatActivity
     ProductAdapter adapter;
     Button addProductButton;
     Button clearListButton;
-    String deleteMenuString, updateMenuString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

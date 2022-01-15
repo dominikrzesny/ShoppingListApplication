@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/shopNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/ShopNameLabel" />
+
+    <EditText
+        android:id="@+id/descriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shopNameEditText"
+        android:layout_alignParentStart="true"
+        android:hint="@string/DescriptionLabel"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/radiusEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descriptionEditText"
+        android:layout_alignParentStart="true"
+        android:hint="@string/RadiusLabel"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/latitudeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radiusEditText"
+        android:layout_alignParentStart="true"
+        android:hint="@string/LatitudeLabel"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <EditText
+        android:id="@+id/longitudeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/latitudeEditText"
+        android:layout_alignParentStart="true"
+        android:hint="@string/LongitudeLabel"
+        android:inputType="numberSigned|numberDecimal" />
+
+</RelativeLayout>

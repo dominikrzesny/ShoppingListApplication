@@ -1,6 +1,5 @@
 package com.example.Rzesny.shoppinglistapp.Models;
 
-
 public class Product {
 
     public String productName;
